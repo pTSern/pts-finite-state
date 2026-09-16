@@ -1,4 +1,4 @@
-import { implement, pTSAsset } from "db://pts-core/scripts/utils"
+import { pTSAsset } from "db://pts-core/scripts/utils"
 import { FiniteState_Base_Machine } from "../Base/FiniteState.Base.Machine";
 import { _decorator } from "cc";
 import { editor_property } from "db://pts-core/scripts/utils/pClass";
@@ -9,7 +9,6 @@ const { ccclass, property } = _decorator;
 type _TState<_TContext> = FiniteState_pTSAsset_State<_TContext>;
 type _IChangeOpt<_TId extends pFlex.TKey> = FiniteState_Base_Machine.IChangeOpt<_TId>;
 
-@implement(FiniteState_Base_Machine)
 @ccclass("FiniteState_pTSAsset_Machine")
 export class FiniteState_pTSAsset_Machine<
     _TId extends pFlex.TKey,
@@ -19,16 +18,17 @@ export class FiniteState_pTSAsset_Machine<
     _TId,
     _TContext
 > {
-    get cid(): _TId | null {
-        return this._cid;
-    }
+    get cid(): _TId | null { return this._cid }
 
     @property({ visible: true })
-    protected _cid: _TId | null = null;
+    protected _cid: _TId | null = '' as _TId;
+
     @property({ visible: true })
     protected _isNoDuplicated: boolean = true;
-    @editor_property({ type: FiniteState_pTSAsset_State, visible: true })
+
+    @editor_property(FiniteState_pTSAsset_State)
     protected _cstate: _TState<_TContext> = null;
+
     protected readonly _states: Map<_TId, _TState<_TContext>> = new Map();
 
     public get cstate(): _TState<_TContext> {

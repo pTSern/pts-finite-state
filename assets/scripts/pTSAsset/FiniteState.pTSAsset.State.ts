@@ -1,10 +1,9 @@
-import { implement, pTSAsset } from "db://pts-core/scripts/utils";
+import { pTSAsset } from "db://pts-core/scripts/utils";
 import { FiniteState_Base_State } from "../Base/FiniteState.Base.State";
 import { _decorator } from "cc";
 
 const { ccclass } = _decorator;
 
-@implement(FiniteState_Base_State)
 @ccclass("FiniteState_pTSAsset_State")
 export abstract class FiniteState_pTSAsset_State<
     _TContext,
