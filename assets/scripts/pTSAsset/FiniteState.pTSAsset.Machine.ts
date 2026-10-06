@@ -10,6 +10,7 @@ type _TState<_TContext> = FiniteState_pTSAsset_State<_TContext>;
 type _IChangeOpt<_TId extends pFlex.TKey> = FiniteState_Base_Machine.IChangeOpt<_TId>;
 
 @ccclass("FiniteState_pTSAsset_Machine")
+@pTSAsset.menu("FiniteState/Machine")
 export class FiniteState_pTSAsset_Machine<
     _TId extends pFlex.TKey,
     _TContext

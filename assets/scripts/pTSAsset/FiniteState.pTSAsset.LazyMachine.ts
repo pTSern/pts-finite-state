@@ -1,4 +1,5 @@
 import { _decorator, CCClass } from "cc";
+import { pTSAsset } from "db://pts-core/scripts/pTSAsset";
 import { FiniteState_pTSAsset_Machine } from "./FiniteState.pTSAsset.Machine";
 import { CC_IEnumList } from "db://pts-core/scripts/interfaces/cc/CC.IEnumable";
 import { FiniteState_pTSAsset_IdSigner } from "./FiniteState.pTSAsset.IdSigner";
@@ -7,6 +8,7 @@ import { FiniteState_pTSAsset_Helper_Initer } from "./FiniteState.pTSAsset.Helpe
 const { ccclass, property } = _decorator
 
 @ccclass("FiniteState_pTSAsset_LazyMachine")
+@pTSAsset.menu("FiniteState/LazyMachine")
 export class FiniteState_pTSAsset_LazyMachine<
     _TId extends pFlex.TKey,
     _TContext
